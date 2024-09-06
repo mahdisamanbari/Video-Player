@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Video from './Video';
 import Menu from './Menu';
 
@@ -15,11 +15,19 @@ const videos = {
   
 
 const App = () => {
+    const videoName=Object.keys(videos)
+    
+    const [videoSrc , setVideoScr]=useState(videos.deer)
+    const formHandler =(video)=>{
+     
+        const videoSrc = videos[video];
+        setVideoScr(videoSrc);
+    }
     return (
         <div>
             <h1>VIDEO PLAYER</h1>
-            <Menu />
-            <Video />
+            <Menu formHandler={formHandler} videoValue={videoName}/>
+            <Video  videoSrc={videoSrc} />
             
         </div>
     );

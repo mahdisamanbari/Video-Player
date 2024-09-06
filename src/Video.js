@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Video = () => {
+const Video = ({videoSrc}) => {
     return (
         <div>
-            <h1>video</h1>
-            
+            <video loop controls autoPlay muted src={videoSrc} />
         </div>
     );
 };
